@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Home, Event, Menu, Wifi, Footer } from "./components";
+import { Navbar, Home, Event, Menu, Footer } from "./components";
 import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
@@ -9,7 +9,6 @@ const App = () => {
       <Home />
       <Event />
       <Menu />
-      <Wifi />
       <Footer />
     </BrowserRouter>
   );
