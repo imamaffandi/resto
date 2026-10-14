@@ -1,391 +1,59 @@
+// Placeholder copy, hours and social links: replace with the real ones before launch.
+
+const photo = (id, width) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${width}&q=75`;
+
+export const site = {
+  name: "Restaurant",
+  city: "Malang, East Java",
+  country: "Indonesia",
+  hours: "11:00 - 22:00",
+};
+
 export const navLinks = [
-  {
-    id: "event",
-    title: "Event",
-  },
-  {
-    id: "menu",
-    title: "Menu",
-  },
-
-  {
-    id: "contact",
-    title: "Contact",
-  },
-];
-const slide = [
-  {
-    img: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=869&q=80",
-    id: 1,
-  },
-  {
-    img: "https://images.unsplash.com/photo-1550005809-91ad75fb315f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=869&q=80",
-    id: 2,
-  },
-  {
-    img: "https://images.unsplash.com/photo-1606800052052-a08af7148866?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-    id: 3,
-  },
-  {
-    img: "https://images.unsplash.com/photo-1609220136736-443140cffec6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-    id: 4,
-  },
-  {
-    img: "https://images.unsplash.com/photo-1442544213729-6a15f1611937?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80",
-    id: 5,
-  },
-];
-const menus = [
-  {
-    id: 1,
-    dish: "Hamburger",
-    price: 9.99,
-    image:
-      "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=327&q=80",
-  },
-  {
-    id: 2,
-    dish: "Pizza",
-    price: 12.99,
-    image:
-      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-  },
-  {
-    id: 3,
-    dish: "Salad",
-    price: 7.99,
-    image:
-      "https://images.unsplash.com/photo-1578859318509-62790b079366?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=394&q=80",
-  },
-  {
-    id: 4,
-    dish: "Pasta",
-    price: 10.99,
-    image:
-      "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-  },
-  {
-    id: 5,
-    dish: "Sushi",
-    price: 14.99,
-    image:
-      "https://images.unsplash.com/photo-1567337710282-00832b415979?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1030&q=80",
-  },
-  {
-    id: 6,
-    dish: "Steak",
-    price: 19.99,
-    image:
-      "https://images.unsplash.com/photo-1602253057119-44d745d9b860?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=726&q=80",
-  },
-  {
-    id: 7,
-    dish: "Fish and Chips",
-    price: 11.99,
-    image:
-      "https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80",
-  },
-  {
-    id: 8,
-    dish: "Chicken Curry",
-    price: 13.99,
-    image:
-      "https://images.unsplash.com/photo-1571805341302-f857308690e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80",
-  },
-  {
-    id: 9,
-    dish: "Burrito",
-    price: 8.99,
-    image:
-      "https://images.unsplash.com/photo-1606850246029-dd00bd5eff97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80",
-  },
-  {
-    id: 10,
-    dish: "Ice Cream",
-    price: 5.99,
-    image:
-      "https://images.unsplash.com/photo-1602881917445-0b1ba001addf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80",
-  },
-  {
-    id: 11,
-    dish: "Hamburger",
-    price: 9.99,
-    image:
-      "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=327&q=80",
-  },
-  {
-    id: 12,
-    dish: "Pizza",
-    price: 12.99,
-    image:
-      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-  },
-  {
-    id: 13,
-    dish: "Salad",
-    price: 7.99,
-    image:
-      "https://images.unsplash.com/photo-1578859318509-62790b079366?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=394&q=80",
-  },
-  {
-    id: 14,
-    dish: "Pasta",
-    price: 10.99,
-    image:
-      "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-  },
-  {
-    id: 15,
-    dish: "Sushi",
-    price: 14.99,
-    image:
-      "https://images.unsplash.com/photo-1567337710282-00832b415979?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1030&q=80",
-  },
-  {
-    id: 16,
-    dish: "Steak",
-    price: 19.99,
-    image:
-      "https://images.unsplash.com/photo-1602253057119-44d745d9b860?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=726&q=80",
-  },
-  {
-    id: 17,
-    dish: "Fish and Chips",
-    price: 11.99,
-    image:
-      "https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80",
-  },
-  {
-    id: 18,
-    dish: "Chicken Curry",
-    price: 13.99,
-    image:
-      "https://images.unsplash.com/photo-1571805341302-f857308690e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80",
-  },
-  {
-    id: 19,
-    dish: "Burrito",
-    price: 8.99,
-    image:
-      "https://images.unsplash.com/photo-1606850246029-dd00bd5eff97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80",
-  },
-  {
-    id: 20,
-    dish: "Ice Cream",
-    price: 5.99,
-    image:
-      "https://images.unsplash.com/photo-1602881917445-0b1ba001addf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80",
-  },
-  {
-    id: 21,
-    dish: "Hamburger",
-    price: 9.99,
-    image:
-      "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=327&q=80",
-  },
-  {
-    id: 22,
-    dish: "Pizza",
-    price: 12.99,
-    image:
-      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-  },
-  {
-    id: 23,
-    dish: "Salad",
-    price: 7.99,
-    image:
-      "https://images.unsplash.com/photo-1578859318509-62790b079366?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=394&q=80",
-  },
-  {
-    id: 24,
-    dish: "Pasta",
-    price: 10.99,
-    image:
-      "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-  },
-  {
-    id: 25,
-    dish: "Sushi",
-    price: 14.99,
-    image:
-      "https://images.unsplash.com/photo-1567337710282-00832b415979?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1030&q=80",
-  },
-  {
-    id: 26,
-    dish: "Steak",
-    price: 19.99,
-    image:
-      "https://images.unsplash.com/photo-1602253057119-44d745d9b860?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=726&q=80",
-  },
-  {
-    id: 27,
-    dish: "Fish and Chips",
-    price: 11.99,
-    image:
-      "https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80",
-  },
-  {
-    id: 28,
-    dish: "Chicken Curry",
-    price: 13.99,
-    image:
-      "https://images.unsplash.com/photo-1571805341302-f857308690e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80",
-  },
-  {
-    id: 29,
-    dish: "Burrito",
-    price: 8.99,
-    image:
-      "https://images.unsplash.com/photo-1606850246029-dd00bd5eff97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80",
-  },
-  {
-    id: 30,
-    dish: "Ice Cream",
-    price: 5.99,
-    image:
-      "https://images.unsplash.com/photo-1602881917445-0b1ba001addf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80",
-  },
-  {
-    id: 31,
-    dish: "Hamburger",
-    price: 9.99,
-    image:
-      "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=327&q=80",
-  },
-  {
-    id: 32,
-    dish: "Pizza",
-    price: 12.99,
-    image:
-      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-  },
-  {
-    id: 33,
-    dish: "Salad",
-    price: 7.99,
-    image:
-      "https://images.unsplash.com/photo-1578859318509-62790b079366?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=394&q=80",
-  },
-  {
-    id: 34,
-    dish: "Pasta",
-    price: 10.99,
-    image:
-      "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-  },
-  {
-    id: 35,
-    dish: "Sushi",
-    price: 14.99,
-    image:
-      "https://images.unsplash.com/photo-1567337710282-00832b415979?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1030&q=80",
-  },
-  {
-    id: 36,
-    dish: "Steak",
-    price: 19.99,
-    image:
-      "https://images.unsplash.com/photo-1602253057119-44d745d9b860?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=726&q=80",
-  },
-  {
-    id: 37,
-    dish: "Fish and Chips",
-    price: 11.99,
-    image:
-      "https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80",
-  },
-  {
-    id: 38,
-    dish: "Chicken Curry",
-    price: 13.99,
-    image:
-      "https://images.unsplash.com/photo-1571805341302-f857308690e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80",
-  },
-  {
-    id: 39,
-    dish: "Burrito",
-    price: 8.99,
-    image:
-      "https://images.unsplash.com/photo-1606850246029-dd00bd5eff97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80",
-  },
-  {
-    id: 40,
-    dish: "Ice Cream",
-    price: 5.99,
-    image:
-      "https://images.unsplash.com/photo-1602881917445-0b1ba001addf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80",
-  },
-  {
-    id: 41,
-    dish: "Hamburger",
-    price: 9.99,
-    image:
-      "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=327&q=80",
-  },
-  {
-    id: 42,
-    dish: "Pizza",
-    price: 12.99,
-    image:
-      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-  },
-  {
-    id: 43,
-    dish: "Salad",
-    price: 7.99,
-    image:
-      "https://images.unsplash.com/photo-1578859318509-62790b079366?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=394&q=80",
-  },
-  {
-    id: 44,
-    dish: "Pasta",
-    price: 10.99,
-    image:
-      "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-  },
-  {
-    id: 45,
-    dish: "Sushi",
-    price: 14.99,
-    image:
-      "https://images.unsplash.com/photo-1567337710282-00832b415979?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1030&q=80",
-  },
-  {
-    id: 46,
-    dish: "Steak",
-    price: 19.99,
-    image:
-      "https://images.unsplash.com/photo-1602253057119-44d745d9b860?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=726&q=80",
-  },
-  {
-    id: 47,
-    dish: "Fish and Chips",
-    price: 11.99,
-    image:
-      "https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80",
-  },
-  {
-    id: 48,
-    dish: "Chicken Curry",
-    price: 13.99,
-    image:
-      "https://images.unsplash.com/photo-1571805341302-f857308690e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80",
-  },
-  {
-    id: 49,
-    dish: "Burrito",
-    price: 8.99,
-    image:
-      "https://images.unsplash.com/photo-1606850246029-dd00bd5eff97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80",
-  },
-  {
-    id: 50,
-    dish: "Ice Cream",
-    price: 5.99,
-    image:
-      "https://images.unsplash.com/photo-1602881917445-0b1ba001addf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80",
-  },
+  { id: "event", title: "Event" },
+  { id: "menu", title: "Menu" },
+  { id: "contact", title: "Contact" },
 ];
 
-export { menus, slide };
+export const hero = {
+  title: "Seasonal plates, long evenings.",
+  body: "Seasonal produce from around East Java, cooked simply and served in a room made for staying late.",
+  image: photo("1473093295043-cdd812d0e601", 1600),
+  alt: "Pesto farfalle with cherry tomatoes and greens in a white bowl",
+};
+
+export const story = {
+  text: "We cook with what the market brings in each week, keep the menu small, and give every plate the same care, from the first order at lunch to the last one at night.",
+  image: photo("1442544213729-6a15f1611937", 900),
+  alt: "Three cyclists riding past tall trees at sunrise",
+};
+
+export const event = {
+  when: "Every Saturday, 19:00 - 22:00",
+  title: "Acoustic nights on the terrace",
+  body: "Local musicians, a shared-plates menu and the kitchen open late. Walk-ins are welcome, and groups can book ahead.",
+  image: photo("1525201548942-d8732f6617a0", 1800),
+  alt: "Musician playing an acoustic guitar by a sunlit window",
+};
+
+export const dishes = [
+  { id: 1, name: "Salmon maki", note: "Salmon, cucumber, sesame, soy", price: 14.99, image: photo("1579584425555-c3ce17fd4351", 800) },
+  { id: 2, name: "Garden bowl", note: "Avocado, chickpeas, sweet potato, greens", price: 9.99, image: photo("1512621776951-a57141f2eefd", 800) },
+  { id: 3, name: "Broccoli soup", note: "Broccoli, cream, spring onion", price: 5.99, image: photo("1578859318509-62790b079366", 800) },
+  { id: 4, name: "Seared salmon", note: "Crisp skin, sauteed greens, lime", price: 19.99, image: photo("1519708227418-c8fd9a32b7a2", 800) },
+  { id: 5, name: "Vegetable thali", note: "Three curries, puri, pickles", price: 13.99, image: photo("1567337710282-00832b415979", 800) },
+  { id: 6, name: "Sticky wings", note: "Soy glaze, chilli, spring onion", price: 8.99, image: photo("1602253057119-44d745d9b860", 800) },
+  { id: 7, name: "Roast loin", note: "Grilled vegetables, beetroot, jus", price: 12.99, image: photo("1514326640560-7d063ef2aed5", 800) },
+  { id: 8, name: "Grilled chicken salad", note: "Avocado, leaves, sesame dressing", price: 10.99, image: photo("1571805341302-f857308690e3", 800) },
+  { id: 9, name: "Burrata and figs", note: "Fresh figs, peach, basil, olive oil", price: 7.99, image: photo("1606850246029-dd00bd5eff97", 800) },
+  { id: 10, name: "Salmon poke", note: "Rice, edamame, nori, wakame", price: 11.99, image: photo("1602881917445-0b1ba001addf", 800) },
+];
+
+export const socials = [
+  { id: "instagram", label: "Instagram", href: "#" },
+  { id: "tiktok", label: "TikTok", href: "#" },
+  { id: "facebook", label: "Facebook", href: "#" },
+  { id: "x", label: "X", href: "#" },
+  { id: "whatsapp", label: "WhatsApp", href: "#" },
+];

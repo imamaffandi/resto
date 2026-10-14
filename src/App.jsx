@@ -1,16 +1,24 @@
-import React from "react";
-import { Navbar, Home, Event, Menu, Footer } from "./components";
-import { BrowserRouter } from "react-router-dom";
+import { useEffect } from "react";
+import { Navbar, Home, Story, Event, Menu, Footer, SmoothScroll } from "./components";
+import { ScrollTrigger } from "./lib/gsap";
 
 const App = () => {
+  // Web fonts change text metrics, so re-measure every trigger once they land
+  useEffect(() => {
+    document.fonts.ready.then(() => ScrollTrigger.refresh());
+  }, []);
+
   return (
-    <BrowserRouter className="overflow-x-hidden">
+    <SmoothScroll>
       <Navbar />
-      <Home />
-      <Event />
-      <Menu />
+      <main>
+        <Home />
+        <Story />
+        <Event />
+        <Menu />
+      </main>
       <Footer />
-    </BrowserRouter>
+    </SmoothScroll>
   );
 };
 

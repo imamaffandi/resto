@@ -1,42 +1,59 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Poppins:wght@300&family=Rubik&family=Young+Serif&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar {
-  width: 5px;
-  display: none;
-}
-/* ::-webkit-scrollbar-track {
-  background: #29a173;
-}
-::-webkit-scrollbar-thumb {
-  background: #f1b24a;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #ffc363;
-} */
+/* z-index scale: nav 40, grain 50 */
 
-.monsterat {
-  font-family: "Montserrat", sans-serif;
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-ink font-sans text-bone antialiased;
+  }
+  ::selection {
+    @apply bg-brand text-ink;
+  }
+  /* Film grain on a fixed, non-scrolling layer only */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
 }
-.poppins {
-  font-family: "Poppins", sans-serif;
+
+@layer components {
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-ink;
+  }
+  .btn-primary {
+    @apply focus-ring inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-brand px-6 py-3.5 text-sm font-medium text-ink transition-[transform,background-color] duration-300 ease-out hover:bg-[#f6c46d] active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply focus-ring inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-bone/20 px-6 py-3.5 text-sm font-medium text-bone transition-[transform,border-color] duration-300 ease-out hover:border-bone/60 active:scale-[0.98];
+  }
 }
-.rubik {
-  font-family: "Rubik", sans-serif;
+
+.nav {
+  transition:
+    background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.young {
-  font-family: "Young Serif", serif;
+.nav.is-scrolled {
+  background-color: rgb(6 16 12 / 0.72);
+  border-color: rgb(232 239 233 / 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
-.container {
-  display: flex;
-  width: 50vw;
-  height: 50%;
-  margin: auto;
-}
-.glass {
-  background: transparent;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(15px);
+
+/* Without motion the menu track becomes a native, swipeable row */
+@media (prefers-reduced-motion: reduce) {
+  .menu-wrap {
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+  }
 }

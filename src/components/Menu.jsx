@@ -1,179 +1,92 @@
-import { menus } from "../constant";
-import Carousel from "react-elastic-carousel";
-import { SectionWrapper } from "../hoc";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { gsap, useGSAP, MOTION_OK } from "../lib/gsap";
+import { dishes } from "../constant";
 
 const Menu = () => {
-  const container = {
-    hidden: { opacity: 1, scale: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: 0.2,
-        staggerChildren: 0.3,
-        ease: "linear",
-      },
+  const wrap = useRef(null);
+  const track = useRef(null);
+
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
+      // Desktop: vertical scroll pans the dish row. Mobile and reduced motion: native swipe row.
+      mm.add(`(min-width: 768px) and ${MOTION_OK}`, () => {
+        const distance = () => Math.max(0, track.current.scrollWidth - wrap.current.clientWidth);
+
+        const pan = gsap.to(track.current, {
+          x: () => -distance(),
+          ease: "none",
+          scrollTrigger: {
+            trigger: wrap.current,
+            start: "top top",
+            end: () => `+=${distance()}`,
+            pin: true,
+            scrub: 1,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        });
+
+        // Photos slide inside their frames against the pan for depth
+        gsap.utils.toArray("[data-dish]", wrap.current).forEach((card) => {
+          gsap.fromTo(
+            card.querySelector("[data-dish-img]"),
+            { xPercent: -7, scale: 1.18 },
+            {
+              xPercent: 7,
+              ease: "none",
+              scrollTrigger: { trigger: card, containerAnimation: pan, start: "left right", end: "right left", scrub: true },
+            },
+          );
+        });
+      });
     },
-  };
-  const item = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { ease: "linear" },
-    },
-  };
-  const itemsToShow = 5;
-  const menuChunks = [];
-  for (let i = 0; i < menus.length; i += itemsToShow) {
-    menuChunks.push(menus.slice(i, i + itemsToShow));
-  }
-  const breakPoints = [
-    { width: 1, itemsToShow: 2 },
-    { width: 550, itemsToShow: 2 },
-    { width: 768, itemsToShow: 3 },
-    { width: 1200, itemsToShow: 4 },
-  ];
+    { scope: wrap },
+  );
 
   return (
-    <main>
-      <p className="monsterat px-7 py-5 font-black text-lg">Menu Favorit</p>
-      <motion.section
-        variants={container}
-        initial="hidden"
-        whileInView="visible"
-        className="flex flex-col sm:flex-row items-center justify-around gap-5"
-      >
-        <motion.div
-          variants={item}
-          className="rounded-md h-72 w-64 overflow-y-scroll border-2 shadow-lg border-brand bg-dark "
-        >
-          <img
-            src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
-            className="object-cover w-full"
-          />
-          <span className="flex gap-2 text-white rubik justify-center py-1">
-            Scroll{" "}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5"
-              />
-            </svg>
-          </span>
-          <p className="px-3 py-10 poppins text-white">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
-            molestiae corrupti dolor id explicabo ipsam et, neque, enim
-            assumenda placeat animi iste? Unde suscipit eos ad, consequuntur
-            nobis et quisquam.
+    <section
+      id="menu"
+      ref={wrap}
+      aria-label="Menu"
+      tabIndex={0}
+      className="menu-wrap relative w-full snap-x snap-mandatory scroll-px-4 overflow-x-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand md:snap-none md:overflow-hidden"
+    >
+      <div ref={track} className="flex w-max items-stretch gap-4 px-4 py-24 md:h-[100dvh] md:items-center md:gap-8 md:px-8 md:py-0">
+        <div className="flex w-[78vw] shrink-0 snap-start flex-col justify-end md:w-[32vw] md:pr-10">
+          <h2 className="font-display text-5xl font-semibold leading-[0.95] tracking-[-0.035em] md:text-7xl">On the menu</h2>
+          <p className="mt-5 max-w-[34ch] leading-relaxed text-muted">
+            Ten plates we cook every day, from light bowls to slow-cooked mains.
           </p>
-        </motion.div>
-        <motion.div
-          variants={item}
-          className="rounded-md h-72 w-64 overflow-y-scroll border-2 shadow-lg border-brand bg-dark "
-        >
-          <img
-            src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
-            className="object-cover w-full"
-          />
-          <span className="flex gap-2 text-white rubik justify-center py-1">
-            Scroll{" "}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5"
+        </div>
+
+        {dishes.map((dish, index) => (
+          <article
+            key={dish.id}
+            data-dish
+            className={`w-[72vw] shrink-0 snap-start md:w-[22vw] ${index % 2 ? "md:mt-28" : "md:mb-28"}`}
+          >
+            <div className="relative aspect-[4/5] overflow-hidden rounded-media bg-forest">
+              <img
+                data-dish-img
+                src={dish.image}
+                alt={dish.name}
+                loading="lazy"
+                width="800"
+                height="1000"
+                className="absolute inset-0 h-full w-full object-cover"
               />
-            </svg>
-          </span>
-          <p className="px-3 py-10 poppins text-white">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
-            molestiae corrupti dolor id explicabo ipsam et, neque, enim
-            assumenda placeat animi iste? Unde suscipit eos ad, consequuntur
-            nobis et quisquam.
-          </p>
-        </motion.div>
-        <motion.div
-          variants={item}
-          className="rounded-md h-72 w-64 overflow-y-scroll border-2 shadow-lg border-brand bg-dark "
-        >
-          <img
-            src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
-            className="object-cover w-full"
-          />
-          <span className="flex gap-2 text-white rubik justify-center py-1">
-            Scroll{" "}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5"
-              />
-            </svg>
-          </span>
-          <p className="px-3 py-10 poppins text-white">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
-            molestiae corrupti dolor id explicabo ipsam et, neque, enim
-            assumenda placeat animi iste? Unde suscipit eos ad, consequuntur
-            nobis et quisquam.
-          </p>
-        </motion.div>
-      </motion.section>
-      <Carousel
-        className="cursor-grab focus:cursor-grabbing py-10"
-        breakPoints={breakPoints}
-        itemsToShow={itemsToShow}
-        renderArrow={() => <div></div>}
-        renderPagination={() => <div></div>}
-      >
-        {menuChunks.map((chunk, index) => (
-          <div key={index}>
-            {chunk.map((menu) => (
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                key={menu.id}
-                className="shadow-md poppins flex items-center cursor-pointer gap-3 rounded-md m-3"
-              >
-                <img
-                  src={menu.image}
-                  alt=""
-                  className="h-full w-1/2 object-cover rounded-md"
-                />
-                <div className="flex flex-col">
-                  <p>{menu.dish}</p>
-                  <p>{menu.price}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+            </div>
+            <div className="mt-4 flex items-baseline justify-between gap-4">
+              <h3 className="font-display text-xl font-medium tracking-[-0.01em] md:text-2xl">{dish.name}</h3>
+              <p className="tabular-nums text-brand">${dish.price.toFixed(2)}</p>
+            </div>
+            <p className="mt-1 text-sm text-muted">{dish.note}</p>
+          </article>
         ))}
-      </Carousel>
-    </main>
+      </div>
+    </section>
   );
 };
 
-export default SectionWrapper(Menu, "menu");
+export default Menu;
