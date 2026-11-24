@@ -1,0 +1,206 @@
+{
+  "restaurant": "Pawon Kemepyar",
+  "currency": "IDR",
+  "menu": [
+    {
+      "id": 1,
+      "category": "Signature & Hearty Mains",
+      "name": "Ayam Bakar Kemepyar",
+      "description": "Charcoal-grilled free-range chicken brushed with sweet-savory Javanese spices and smoky kecap manis.",
+      "price": 34000,
+      "price_formatted": "Rp34.000"
+    },
+    {
+      "id": 2,
+      "category": "Signature & Hearty Mains",
+      "name": "Nyamleng-Pleng Rice Bowl",
+      "description": "Warm pandan rice topped with crispy shredded beef, sweet soy tempeh, and a runny kampung egg.",
+      "price": 32000,
+      "price_formatted": "Rp32.000"
+    },
+    {
+      "id": 3,
+      "category": "Signature & Hearty Mains",
+      "name": "Sapi Rempah Gremeng",
+      "description": "Slow-braised beef chunks simmered in rich coconut milk, galangal, and roasted coriander.",
+      "price": 45000,
+      "price_formatted": "Rp45.000"
+    },
+    {
+      "id": 4,
+      "category": "Signature & Hearty Mains",
+      "name": "Gurame Goreng Krenyes",
+      "description": "Whole crispy-fried gourami served with fresh kemangi leaves and two sambal choices.",
+      "price": 68000,
+      "price_formatted": "Rp68.000"
+    },
+    {
+      "id": 5,
+      "category": "Signature & Hearty Mains",
+      "name": "Iga Sapi Sruput",
+      "description": "Tender beef ribs in an aromatic, clear-yet-rich Javanese herb broth with leeks and lime.",
+      "price": 52000,
+      "price_formatted": "Rp52.000"
+    },
+    {
+      "id": 6,
+      "category": "Signature & Hearty Mains",
+      "name": "Gudeg Pawon Legit",
+      "description": "Classic sweet-savory young jackfruit stew served with krecek, boiled egg, and spiced chicken.",
+      "price": 36000,
+      "price_formatted": "Rp36.000"
+    },
+    {
+      "id": 7,
+      "category": "Signature & Hearty Mains",
+      "name": "Bebek Goreng Kemruyuk",
+      "description": "Golden, ultra-crunchy duck fried to order with aromatic spice crumbs and fiery sambal korek.",
+      "price": 42000,
+      "price_formatted": "Rp42.000"
+    },
+    {
+      "id": 8,
+      "category": "Kriuk, Kremes & Family Sharables",
+      "name": "Kremes-Kemruyuk Platter",
+      "description": "A generous sharing basket of crispy spice batter flakes, fried tempeh, tofu, and baby corn.",
+      "price": 28000,
+      "price_formatted": "Rp28.000"
+    },
+    {
+      "id": 9,
+      "category": "Kriuk, Kremes & Family Sharables",
+      "name": "Tahu Tempe Maknyus-Nyus",
+      "description": "Savory marinated tofu and tempeh fried golden and served with sweet-spicy peanut dip.",
+      "price": 18000,
+      "price_formatted": "Rp18.000"
+    },
+    {
+      "id": 10,
+      "category": "Kriuk, Kremes & Family Sharables",
+      "name": "Mendoan Pawon Hangat",
+      "description": "Thin slices of tempeh coated in scallion-laced batter, lightly fried for a soft, tender center.",
+      "price": 16000,
+      "price_formatted": "Rp16.000"
+    },
+    {
+      "id": 11,
+      "category": "Kriuk, Kremes & Family Sharables",
+      "name": "Perkedel Jagung Nyamleng",
+      "description": "Sweet corn and herb fritters fried crisp on the outside and fluffy inside.",
+      "price": 17000,
+      "price_formatted": "Rp17.000"
+    },
+    {
+      "id": 12,
+      "category": "Kriuk, Kremes & Family Sharables",
+      "name": "Bakwan Sayur Kemepyar",
+      "description": "Crunchy mixed-vegetable fritters packed with cabbage, carrots, and bean sprouts.",
+      "price": 15000,
+      "price_formatted": "Rp15.000"
+    },
+    {
+      "id": 13,
+      "category": "Kriuk, Kremes & Family Sharables",
+      "name": "Pisang Goreng Lumer-Lamar",
+      "description": "Ripe plantains fried in light batter and drizzled with palm sugar caramel and grated cheese.",
+      "price": 22000,
+      "price_formatted": "Rp22.000"
+    },
+    {
+      "id": 14,
+      "category": "Sides, Sambals & Kids' Picks",
+      "name": "Nasi Putih Hangat",
+      "description": "Steaming white rice cooked fresh throughout the day.",
+      "price": 7000,
+      "price_formatted": "Rp7.000"
+    },
+    {
+      "id": 15,
+      "category": "Sides, Sambals & Kids' Picks",
+      "name": "Nasi Gurih Kemruyuk",
+      "description": "Fragrant coconut-infused rice steamed with lemongrass and bay leaves.",
+      "price": 10000,
+      "price_formatted": "Rp10.000"
+    },
+    {
+      "id": 16,
+      "category": "Sides, Sambals & Kids' Picks",
+      "name": "Sayur Asem Segar",
+      "description": "Tangy, bright tamarind vegetable soup with corn, melinjo, peanuts, and chayote.",
+      "price": 16000,
+      "price_formatted": "Rp16.000"
+    },
+    {
+      "id": 17,
+      "category": "Sides, Sambals & Kids' Picks",
+      "name": "Lalapan & Sambal Trio",
+      "description": "Fresh cucumber, cabbage, and basil leaves paired with sambal terasi, sambal bawang, and sambal ijo.",
+      "price": 14000,
+      "price_formatted": "Rp14.000"
+    },
+    {
+      "id": 18,
+      "category": "Sides, Sambals & Kids' Picks",
+      "name": "Mini Nyam-Nyam Chicken Bites",
+      "description": "Mild, savory chicken strips made kid-friendly with a light crunch and ketchup on the side.",
+      "price": 24000,
+      "price_formatted": "Rp24.000"
+    },
+    {
+      "id": 19,
+      "category": "Sides, Sambals & Kids' Picks",
+      "name": "Telur Dadar Legit-Legut",
+      "description": "Thick, fluffy omelette folded with scallions, shallots, and a hint of sweet soy.",
+      "price": 14000,
+      "price_formatted": "Rp14.000"
+    },
+    {
+      "id": 20,
+      "category": "Drinks & Sweet Closers",
+      "name": "Es Teh Kampul",
+      "description": "Refreshing iced Javanese tea served with a bright slice of lime.",
+      "price": 10000,
+      "price_formatted": "Rp10.000"
+    },
+    {
+      "id": 21,
+      "category": "Drinks & Sweet Closers",
+      "name": "Wedang Jahe Kemepyar",
+      "description": "Warming crushed ginger drink sweetened with palm sugar and a touch of lemongrass.",
+      "price": 15000,
+      "price_formatted": "Rp15.000"
+    },
+    {
+      "id": 22,
+      "category": "Drinks & Sweet Closers",
+      "name": "Es Gula Asem",
+      "description": "Chilled tamarind and palm sugar refresher—sweet, tangy, and great for hot afternoons.",
+      "price": 14000,
+      "price_formatted": "Rp14.000"
+    },
+    {
+      "id": 23,
+      "category": "Drinks & Sweet Closers",
+      "name": "Kopi Tubruk Pawon",
+      "description": "Traditional coarsely ground dark coffee brewed hot with a bold, earthy finish.",
+      "price": 13000,
+      "price_formatted": "Rp13.000"
+    },
+    {
+      "id": 24,
+      "category": "Drinks & Sweet Closers",
+      "name": "Es Kelapa Jeruk Nipis",
+      "description": "Chilled young coconut water and meat balanced with fresh lime juice.",
+      "price": 18000,
+      "price_formatted": "Rp18.000"
+    },
+    {
+      "id": 25,
+      "category": "Drinks & Sweet Closers",
+      "name": "Bubur Sumsum Legit",
+      "description": "Silky rice-flour pudding topped with warm palm sugar syrup and rich coconut cream.",
+      "price": 16000,
+      "price_formatted": "Rp16.000"
+    }
+  ]
+}

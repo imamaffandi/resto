@@ -2,58 +2,255 @@
 @tailwind components;
 @tailwind utilities;
 
-/* z-index scale: nav 40, grain 50 */
+/* z-index scale: frame 1, mobile CTA 30, menu overlay 45, header 50, lightbox 60, grain 70 */
 
 @layer base {
   html {
-    color-scheme: dark;
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
   }
   body {
-    @apply bg-ink font-sans text-bone antialiased;
+    @apply bg-sand font-sans text-ink antialiased;
+    /* Kawung, the four-petal Javanese batik motif, drawn very faintly on the backdrop the paper sits on */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23654331' stroke-opacity='.16' stroke-width='1'%3E%3Cellipse cx='28' cy='14' rx='7' ry='12'/%3E%3Cellipse cx='28' cy='42' rx='7' ry='12'/%3E%3Cellipse cx='14' cy='28' rx='12' ry='7'/%3E%3Cellipse cx='42' cy='28' rx='12' ry='7'/%3E%3Ccircle cx='28' cy='28' r='1.6'/%3E%3Ccircle cx='0' cy='0' r='1.6'/%3E%3Ccircle cx='56' cy='56' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
   }
   ::selection {
-    @apply bg-brand text-ink;
+    @apply bg-terra text-rice;
   }
-  /* Film grain on a fixed, non-scrolling layer only */
+  h1,
+  h2,
+  h3 {
+    font-variation-settings: "SOFT" 60, "WONK" 0;
+  }
+  /* Paper grain on a fixed, non-scrolling layer */
   body::after {
     content: "";
     position: fixed;
     inset: 0;
-    z-index: 50;
+    z-index: 70;
     pointer-events: none;
-    opacity: 0.05;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.07;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 }
 
 @layer components {
   .focus-ring {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-ink;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terra focus-visible:ring-offset-2 focus-visible:ring-offset-rice;
   }
-  .btn-primary {
-    @apply focus-ring inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-brand px-6 py-3.5 text-sm font-medium text-ink transition-[transform,background-color] duration-300 ease-out hover:bg-[#f6c46d] active:scale-[0.98];
+
+  /* The sheet of paper every section is printed on, inset from the batik backdrop */
+  /* overflow-x: clip (not hidden) trims rotating ornaments without breaking position: sticky inside */
+  .paper {
+    overflow-x: clip;
+    @apply relative mx-2 my-2 bg-rice shadow-[0_1px_0_rgba(29,27,24,0.06),0_24px_60px_-30px_rgba(101,67,49,0.45)] md:mx-4 md:my-4 xl:mx-6;
   }
-  .btn-ghost {
-    @apply focus-ring inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-bone/20 px-6 py-3.5 text-sm font-medium text-bone transition-[transform,border-color] duration-300 ease-out hover:border-bone/60 active:scale-[0.98];
+  .paper-frame {
+    @apply pointer-events-none absolute inset-2 top-[76px] z-[1] border border-terra/70 md:inset-4 md:top-[88px];
+  }
+  .paper-frame::after {
+    content: "";
+    @apply absolute inset-[3px] border border-terra/30;
+  }
+
+  .shell {
+    @apply mx-auto w-full max-w-[1320px] px-5 md:px-12 xl:px-16;
+  }
+
+  /* Small uppercase metadata line */
+  .label {
+    @apply font-sans text-[0.7rem] font-medium uppercase tracking-label text-wood;
+  }
+  /* Italic serif kicker that sits above titles, with a hairline running off to the right */
+  .kicker {
+    @apply flex items-center gap-4 font-serif text-base italic text-terra md:text-lg;
+  }
+  .kicker::after {
+    content: "";
+    @apply h-px flex-1 bg-current opacity-60;
+  }
+
+  .display {
+    @apply font-serif font-semibold uppercase leading-[0.86] tracking-[-0.02em];
+  }
+  /* Section headline. Capped by its column (cqi) as well as the breakpoint, so a long Indonesian word
+     like "Kebersamaan" never pushes past a narrow column on tablet */
+  .title-wrap {
+    container-type: inline-size;
+  }
+  .title {
+    @apply font-serif font-medium leading-[0.98] tracking-[-0.025em] [text-wrap:balance];
+    font-size: min(17cqi, 2.6rem);
+  }
+  @media (min-width: 768px) {
+    .title {
+      font-size: min(17cqi, 3.75rem);
+    }
+  }
+  @media (min-width: 1280px) {
+    .title {
+      font-size: min(17cqi, 4.6rem);
+    }
+  }
+
+  .btn {
+    @apply focus-ring relative inline-flex min-h-[48px] items-center justify-center gap-2.5 whitespace-nowrap px-6 font-serif text-lg italic transition-[color,background-color,transform] duration-300 ease-out active:scale-[0.98];
+  }
+  .btn-solid {
+    @apply btn bg-terra text-rice hover:bg-terra-deep;
+  }
+  /* Double-ruled outline button, like a printed coupon */
+  .btn-line {
+    @apply btn border border-terra text-terra outline outline-1 outline-offset-[3px] outline-terra/40 hover:bg-terra hover:text-rice;
+  }
+  .btn-paper {
+    @apply btn bg-rice text-ink hover:bg-sand;
+  }
+
+  /* Thin ruled frame around photographs */
+  .photo {
+    @apply relative overflow-hidden bg-sand/60 ring-1 ring-inset ring-terra/40;
+  }
+  .photo > img {
+    @apply h-full w-full object-cover;
+  }
+  .photo::after {
+    content: "";
+    @apply pointer-events-none absolute inset-0 ring-1 ring-inset ring-ink/10;
+  }
+
+  /* Hairline between sections, aligned to the content column (not the paper edge, which would cut the frame) */
+  .section-rule::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 1px;
+    background: rgb(166 83 55 / 0.4);
+    left: max(1.25rem, calc((100% - 1320px) / 2 + 1.25rem));
+    right: max(1.25rem, calc((100% - 1320px) / 2 + 1.25rem));
+  }
+  @media (min-width: 768px) {
+    .section-rule::before {
+      left: max(3rem, calc((100% - 1320px) / 2 + 3rem));
+      right: max(3rem, calc((100% - 1320px) / 2 + 3rem));
+    }
+  }
+  @media (min-width: 1280px) {
+    .section-rule::before {
+      left: max(4rem, calc((100% - 1320px) / 2 + 4rem));
+      right: max(4rem, calc((100% - 1320px) / 2 + 4rem));
+    }
+  }
+
+  .rule {
+    @apply h-px w-full bg-terra/50;
+  }
+
+  /* Drop cap in a charcoal square, as in old printed menus */
+  .dropcap::first-letter {
+    @apply float-left mr-3 mt-1 bg-ink px-3 pb-1 pt-2 font-serif text-[3.6rem] font-semibold not-italic leading-[0.8] text-rice;
+  }
+
+  .placeholder {
+    @apply font-serif italic text-wood/70 underline decoration-terra/50 decoration-dashed underline-offset-4;
   }
 }
 
-.nav {
+/* Header: transparent over the hero, paper once scrolling */
+.nav-bar {
   transition:
-    background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    background-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.nav.is-scrolled {
-  background-color: rgb(6 16 12 / 0.72);
-  border-color: rgb(232 239 233 / 0.08);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+.nav-bar.is-scrolled {
+  background-color: rgb(245 240 231 / 0.94);
+  box-shadow: 0 1px 0 rgb(166 83 55 / 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-/* Without motion the menu track becomes a native, swipeable row */
-@media (prefers-reduced-motion: reduce) {
-  .menu-wrap {
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory;
+/* Logo JPG sits on near-white: multiply drops the white into the paper and keeps the ink untouched */
+.logo-ink {
+  mix-blend-mode: multiply;
+}
+
+/* Illustrations: steam drifts, flames flicker */
+@keyframes steam {
+  0% {
+    stroke-dashoffset: 60;
+    opacity: 0;
   }
+  30% {
+    opacity: 0.9;
+  }
+  100% {
+    stroke-dashoffset: -60;
+    opacity: 0;
+  }
+}
+@keyframes flicker {
+  0%,
+  100% {
+    transform: scale(1, 1) skewX(0deg);
+  }
+  25% {
+    transform: scale(0.94, 1.06) skewX(-2deg);
+  }
+  50% {
+    transform: scale(1.04, 0.95) skewX(1.5deg);
+  }
+  75% {
+    transform: scale(0.97, 1.04) skewX(-1deg);
+  }
+}
+.steam path {
+  stroke-dasharray: 60;
+  animation: steam 3.6s ease-in-out infinite;
+}
+.steam path:nth-child(2) {
+  animation-delay: 1.2s;
+}
+.steam path:nth-child(3) {
+  animation-delay: 2.4s;
+}
+.flame {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: flicker 1.8s ease-in-out infinite;
+}
+.flame:nth-of-type(2) {
+  animation-duration: 2.3s;
+  animation-delay: -0.6s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .steam path,
+  .flame {
+    animation: none;
+  }
+  .steam path {
+    stroke-dasharray: none;
+    opacity: 0.8;
+  }
+}
+
+/* Category tabs scroll sideways on small screens without a visible bar */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

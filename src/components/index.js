@@ -1,9 +1,14 @@
-import Navbar from "./Navbar";
-import Home from "./Home";
-import Story from "./Story";
-import Event from "./Event";
-import Menu from "./Menu";
-import Footer from "./Footer";
-import SmoothScroll from "./SmoothScroll";
-
-export { Navbar, Home, Story, Event, Menu, Footer, SmoothScroll };
+export { default as Navbar } from "./Navbar";
+export { default as Hero } from "./Hero";
+export { default as Intro } from "./Intro";
+export { default as Menu } from "./Menu";
+export { default as Experience } from "./Experience";
+export { default as Reservation } from "./Reservation";
+export { default as Kitchen } from "./Kitchen";
+export { default as Specials } from "./Specials";
+export { default as Gallery } from "./Gallery";
+export { default as Location } from "./Location";
+export { default as FinalCta } from "./FinalCta";
+export { default as Footer } from "./Footer";
+export { default as MobileReserve } from "./MobileReserve";
+export { default as SmoothScroll } from "./SmoothScroll";
